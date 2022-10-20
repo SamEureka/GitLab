@@ -1,0 +1,18 @@
+version: '2.3'
+services:
+  gitlab:
+    image: gitlab/gitlab-ee:latest
+    restart: always
+    hostname: gitlab
+    ports:
+      - '80:80'
+      - '443:443'
+      - '22:22'
+    volumes:
+      - GITLAB_CONFIG:/etc/gitlab
+      - GITLAB_LOGS:/var/log/gitlab
+      - GITLAB_HOME:/var/opt/gitlab
+volumes:
+  GITLAB_HOME:
+  GITLAB_CONFIG:
+  GITLAB_LOGS:
